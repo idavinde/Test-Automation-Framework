@@ -1,0 +1,45 @@
+name: Test Automation Workflow
+
+on:
+  push:
+    branches: 
+       - master
+  pull_request:
+    branches:
+      - master
+  schedule:
+    - cron: "30 23 * * *" 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+
+    steps:
+
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Set up JDK 17
+          uses: actions/setup-java@v5
+          with:
+            java-version: '17'
+            distribution: 'temurin'
+
+        - name: Run tests
+          run: mvn test -X -Dbrowser=chrome -DisLambdaTest=true -DisHeadless=false
+
+        - name: Archive Logs
+          if: always()
+          uses: actions/upload-artifact@v4
+          with:
+           name: automation-logs
+           path: logs/
+
+        - name: Archive Extent Reports
+          if: always()
+          uses: actions/upload-artifact@v4
+          with:
+           name: extent-reports
+           path: report.html
+  
