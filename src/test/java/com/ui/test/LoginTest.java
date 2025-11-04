@@ -22,7 +22,7 @@ public class LoginTest extends TestBase {
 			"smoke" }, dataProviderClass = com.ui.dataproviders.LoginDataProvider.class, dataProvider = "LoginTestCSVDataProvider", retryAnalyzer = com.ui.listners.MyRetryAnalyzer.class)
 	public void loginTestWithCSV(User user) {
 
-		assertEquals(homePage.goToLoginPage().doLoginWith(user.getEmailAddress(), user.getPassword()).getUserName(),
+		 assertEquals(homePage.goToLoginPage().doLoginWith(user.getEmailAddress(), user.getPassword()).getUserName(),
 				"Dav Raj");
 
 	}
