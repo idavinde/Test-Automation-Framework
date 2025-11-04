@@ -27,7 +27,7 @@ jobs:
             distribution: 'temurin'
 
         - name: Run tests
-          run: mvn test -X -Dbrowser=chrome -DisLambdaTest=true -DisHeadless=false
+          run: mvn test -X -Dbrowser=chrome -DisLambdaTest=false -DisHeadless=true
 
         - name: Archive Logs
           if: always()
