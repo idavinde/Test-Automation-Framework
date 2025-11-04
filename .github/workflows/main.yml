@@ -35,11 +35,37 @@ jobs:
           with:
            name: automation-logs
            path: logs/
-
+           
+        - name: Archive Screenshots 
+          if: always()
+          uses: actions/upload-artifact@v4
+          with:
+           name: screenshots
+           path: screenshots/
+           
         - name: Archive Extent Reports
           if: always()
           uses: actions/upload-artifact@v4
           with:
            name: extent-reports
            path: report.html
+           
+        - name: Copy Report to gh-pages Folder
+          if: always()
+          
+          run:  |
+              mkdir -p public/extent-reports
+              cp -R report.html public/extent-reports/
+              cp -R screenshots/ public/extent-reports/screenshots/
+              ls
+              
+              
+          
+        - name: Deploy
+          if: always()
+          uses: JamesIves/github-pages-deploy-action@v4.7.3
+          with:
+           folder: public/extent-reports/
+           token: ${{secrets.PAT}}
+           clean: true
   
