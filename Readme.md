@@ -36,7 +36,7 @@ Before running this framework, ensure the following software is installed on you
 - **Reporting**: Generates detailed reports using Extent Reports.
 
 ## Technologies Used
-- Java 11
+- Java 16
 - TestNG
 - OpenCSV
 - Gson
@@ -45,10 +45,9 @@ Before running this framework, ensure the following software is installed on you
 - LambdaTest
 - Log4j
 - Extent Reports
-- Setup Instructions
 
+## Setup Instructions
 
-## Installation
 
 **Clone the Repository:**
 
@@ -77,3 +76,4 @@ Logs are created during the test execution and stored in the ./logs/ directory.
 This automation framework is integrated with github actions. The tests will be executed at 11:30PM IST every single day.
 
 The reports will be archieved in gh-pages branch You can view the html reports at : https://idavinde.github.io/Test-Automation-Framework/report.html
+
