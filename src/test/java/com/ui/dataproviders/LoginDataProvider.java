@@ -12,8 +12,10 @@ import org.testng.annotations.DataProvider;
 import com.google.gson.Gson;
 import com.ui.pojo.TestData;
 import com.ui.pojo.User;
+import com.ui.request.model.AddNewAddress;
 import com.utility.CSVReaderUtility;
 import com.utility.ExcelReaderUtility;
+import com.utility.FakeDataGenerator;
 
 public class LoginDataProvider {
 	
@@ -61,4 +63,6 @@ public class LoginDataProvider {
 		
 		return ExcelReaderUtility.readExcelFile("testData/LoginData.xlsx");
 	}
+	
+
 }
